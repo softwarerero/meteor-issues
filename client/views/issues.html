@@ -1,0 +1,92 @@
+<template name="issues">
+  {{setTitle "Issues"}}
+
+  <div class="row formTitleRow">
+    <div class="col-xs-11">
+      <h2>{{i18n "issues"}}</h2>
+    </div>
+    <div class="col-xs-1 tableheader">
+      <button type="submit" class="btn btn-primary pull-right create tableheader">{{i18n "buttons.create"}}</button>
+    </div>
+  </div>
+
+  <div class="row issues">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th class="">{{i18n "title"}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each issues}}
+        <tr uid="{{_id}}" class="tableRow">
+          <td class="">
+            {{title}}
+          </td>
+        </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="issue">
+  {{setTitle "Issues"}}
+  <h2>{{i18n "issue"}}</h2>
+
+  {{#autoForm schema=schema doc=doc id="issue"}}
+    {{afFieldInput "product" type="hidden"}}
+    <div class="row margin-15">
+      <div class="col-xs-8">
+        {{afQuickField "title" autofocus=""}}
+      </div>
+      <div class="col-xs-4">
+        {{afQuickField "state" options=issueStates noselect=""}}
+      </div>
+    </div>
+    <div class="row margin-15">
+      <div class="col-xs-6">
+        {{afQuickField "description" rows=5}}
+      </div>
+      <div class="col-xs-6">
+        {{afQuickField "stepsToReproduce" rows=5}}
+      </div>
+    </div>
+    <div class="row margin-15">
+      <div class="col-xs-4">
+        {{afQuickField "foundInVersion" options="allowed"}}
+      </div>
+      <div class="col-xs-4">
+        {{afQuickField "foundBy" options=users}}
+      </div>
+      <div class="col-xs-4">
+        {{afQuickField "foundAt"}}
+      </div>
+    </div>
+    <div class="row margin-15">
+      <div class="col-xs-4">
+        {{afQuickField "solvedInVersion" options="allowed"}}
+      </div>
+      <div class="col-xs-4">
+        {{afQuickField "solvedBy" options=users}}
+      </div>
+      <div class="col-xs-4">
+        {{afQuickField "solvedAt"}}
+      </div>
+    </div>
+    {{#if _doc._id}}
+      <button type="submit" class="btn btn-primary update">{{i18n "buttons.save"}}</button>
+    {{/if}}
+    {{#unless _doc._id}}
+      <button type="submit" class="btn btn-primary insert">{{i18n "buttons.save"}}</button>
+    {{/unless}}
+    <button type="submit" class="btn cancel">{{i18n "buttons.cancel"}}</button>
+
+  {{/autoForm}}
+
+  {{#autoForm schema=schema doc=doc}}
+    <button type="submit" class="btn pull-right remove">Borrar</button>
+  {{/autoForm}}
+
+
+</template>
