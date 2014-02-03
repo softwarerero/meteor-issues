@@ -1,9 +1,12 @@
 {
   "name": "issues",
-  "description": "REPLACEME - What does this package (or the original one you're wrapping) do?",
+  "description": "Manage issues within an application.",
   "homepage": "",
-  "author": "Your Name <your@email> (http://yoursite)",
+  "author": "stefan@sun.com.py",
   "version": "0.0.1",
-  "git": "",
-  "packages": {}
+  "git": "https://github.com/softwarerero/meteor-issues",
+  "packages": {
+    "iron-router": {},
+    "just-i18n": {}
+  }
 }

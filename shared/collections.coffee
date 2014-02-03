@@ -4,6 +4,7 @@
 #      type: String
 #      label: "Version"
 
+#TODO move to collection
 versions = ["-", "1.0.0", "1.0.1"]
 
 @Issues = new Meteor.Collection2 "issues",
@@ -54,6 +55,7 @@ versions = ["-", "1.0.0", "1.0.1"]
 #      allowedValues: (v for k, v of i18n "issueState")
 
 
+#TODO some checks
 @Issues.allow
   insert: () ->
     true

@@ -15,7 +15,6 @@
 collectionName = "issues"
 entityName = "issue"
 Meteor.subscribe(collectionName)
-#IssuesForm = new AutoForm(Issues)
 IssuesForm = new AutoForm(Issues)
 
 IssuesForm.hooks
@@ -45,7 +44,6 @@ Template.issues.events
 
   'click .create': (event, template) ->
     Router.go(entityName, {id: "new"})
-#    Router.go(entityName)
 
 Template.issue.helpers
   schema: () ->
