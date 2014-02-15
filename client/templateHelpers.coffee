@@ -12,8 +12,8 @@ Handlebars.registerHelper "issueStates", () ->
   ({value: k, label: v} for k, v of i18n "issueState")
 
 Handlebars.registerHelper "users", () ->
-  users = Meteor.users.find().fetch()
-  ret = ({value: u._id, label: u.profile.name} for u in users)
+  users = Meteor.users.find({}).fetch()
+  ret = ({value: u._id, label: u.profile?.name || u.emails[0].address} for u in users)
   ret.splice 0, 0, {value: "", label: "-"}
   ret
 

@@ -10,8 +10,11 @@ IssuesForm.hooks
     console.log "operation: " + operation + ", error: " + error
   before:
     insert: (doc) ->
-      user = Session.get "user"
-      doc.user = user._id
+#      user = Session.get "user"
+#      user = Meteor.user()
+#      doc.user = user._id
+#      doc
+      console.log "insert " + JSON.stringify doc
       doc
     remove: (id) ->
       ret = confirm("En serio?");
@@ -36,9 +39,9 @@ Template.issue.helpers
     IssuesForm
   doc: () ->
     if this.id is "new"
-      foundBy: (Session.get "user")._id
-      product: Meteor.settings.public.systemName
-      foundInVersion: Meteor.settings.public.version
+      foundBy: Meteor.userId
+      product: IssueConfig.systemName
+      foundInVersion: IssueConfig.systemVersion
       foundAt: new Date
       state: "new"
     else
@@ -48,15 +51,3 @@ Template.issue.events
   'click .cancel': (event, template) ->
     event.preventDefault()
     Router.go(collectionName)
-
-#  'click .remove': (event, template) ->
-#    event.preventDefault()
-#    id = $(".id").val()
-#    #    alert(id)
-#    if confirm("En serio?")
-#      Meteor.call "deleteUser", id, (error, result) ->
-#        console.log('created user: ' + error + ", " + JSON.stringify(result))
-#        displayResult(error, result)
-#        Router.go(collectionName)
-
-

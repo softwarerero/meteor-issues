@@ -10,8 +10,7 @@ versionsForm.hooks
     console.log "operation: " + operation + ", error: " + error
   before:
     insert: (doc) ->
-      user = Session.get "user"
-      doc.user = user._id
+#      doc.product = IssueConfig.systemName
       console.log "insert " + JSON.stringify doc
       doc
     remove: (id) ->
@@ -37,7 +36,7 @@ Template.version.helpers
     versionsForm
   doc: () ->
     if this.id is "new"
-      product: Meteor.settings.public.systemName
+      product: IssueConfig.systemName
     else
       Versions.findOne { _id: this.id }
 

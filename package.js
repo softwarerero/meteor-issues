@@ -18,6 +18,7 @@ Package.on_use(function (api, where) {
   api.add_files('shared/i18n/es.coffee', both);
   api.add_files(['shared/router.coffee'], both);
   api.add_files('shared/collections.coffee', both);
+  api.add_files('shared/config.coffee', both);
 
   // CLIENT
   api.use([

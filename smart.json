@@ -2,11 +2,13 @@
   "name": "issues",
   "description": "Manage issues within an application.",
   "homepage": "https://github.com/softwarerero/meteor-issues",
-  "author": "Stefan Undorf <el@softwarerero.com>",
-  "version": "0.0.2",
+  "author": "el@softwarerero.com",
+  "version": "0.0.3",
   "git": "https://github.com/softwarerero/meteor-issues",
   "packages": {
     "iron-router": {},
-    "just-i18n": {}
+    "just-i18n": {},
+    "collection2": {},
+    "autoform": {}
   }
 }
