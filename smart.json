@@ -1,8 +1,7 @@
 {
   "name": "issues",
   "description": "Manage issues within an application.",
-  "homepage": "",
-  "author": "stefan@sun.com.py",
+  "author": "el@softwarerero.com",
   "version": "0.0.1",
   "git": "https://github.com/softwarerero/meteor-issues",
   "packages": {

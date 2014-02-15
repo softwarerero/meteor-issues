@@ -1,0 +1,56 @@
+<template name="versions">
+  {{setTitle "versions"}}
+
+  <div class="row formTitleRow">
+    <div class="col-xs-11">
+      <h2>{{i18n "versions"}}</h2>
+    </div>
+    <div class="col-xs-1 tableheader">
+      <button type="submit" class="btn btn-primary pull-right create tableheader">{{i18n "buttons.create"}}</button>
+    </div>
+  </div>
+
+  <div class="row versions">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th class="">{{i18n "name"}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      {{#each versions}}
+      <tr uid="{{_id}}" class="tableRow">
+        <td class="">
+          {{name}}
+        </td>
+      </tr>
+      {{/each}}
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<template name="version">
+  {{setTitle "versions"}}
+  <h2>{{i18n "version"}}</h2>
+
+  {{#autoForm schema=schema doc=doc id="version"}}
+  {{afFieldInput "product" type="hidden"}}
+  {{afQuickField "name" autofocus=""}}
+
+  {{#if _doc._id}}
+  <button type="submit" class="btn btn-primary update">{{i18n "buttons.save"}}</button>
+  {{/if}}
+  {{#unless _doc._id}}
+  <button type="submit" class="btn btn-primary insert">{{i18n "buttons.save"}}</button>
+  {{/unless}}
+  <button type="submit" class="btn cancel">{{i18n "buttons.cancel"}}</button>
+
+  {{/autoForm}}
+
+  {{#autoForm schema=schema doc=doc}}
+  <button type="submit" class="btn pull-right remove">Borrar</button>
+  {{/autoForm}}
+
+
+</template>

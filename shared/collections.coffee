@@ -5,7 +5,7 @@
 #      label: "Version"
 
 #TODO move to collection
-versions = ["-", "1.0.0", "1.0.1"]
+#versions = ["-", "1.0.0", "1.0.1"]
 
 @Issues = new Meteor.Collection2 "issues",
   schema:
@@ -26,7 +26,7 @@ versions = ["-", "1.0.0", "1.0.1"]
     foundInVersion:
       type: String
       label: i18n "foundInVersion"
-      allowedValues: versions
+#      allowedValues: versions
     foundBy:
       type: String
       label: i18n "foundBy"
@@ -37,7 +37,7 @@ versions = ["-", "1.0.0", "1.0.1"]
     solvedInVersion:
       type: String
       label: i18n "solvedInVersion"
-      allowedValues: versions
+#      allowedValues: versions
       optional: true
     solvedBy:
       type: String
@@ -51,12 +51,28 @@ versions = ["-", "1.0.0", "1.0.1"]
       type: String
       label: i18n "state"
       optional: true
-#      allowedValues: [key: "val"]
-#      allowedValues: (v for k, v of i18n "issueState")
 
 
 #TODO some checks
 @Issues.allow
+  insert: () ->
+    true
+  update: () ->
+    true
+  remove: () ->
+    true
+  fetch: []
+
+@Versions = new Meteor.Collection2 "versions",
+  schema:
+    name:
+      type: String
+      label: i18n "name"
+    product:
+      type: String
+      label: i18n "product"
+
+@Versions.allow
   insert: () ->
     true
   update: () ->

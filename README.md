@@ -2,16 +2,22 @@
 
 Manage issues within an application. Some routes based on iron-router already come with the package. There is basic translation support and the only available language is Spanish so far (yeah, no English).
 
-The current feature set 
+### The current feature set
 
-* Create issues
-* Update issues
+* Create Versions (for you program)
+* Create Issues
+* Release Notes
 
-Coming features
+In theory all is needed is integrate the routes `issues`, `versions` and `releaseNotes` into you application.
+This is not tested well, so let me know if you find problems.
 
-* Delete issues
-* Make versions configurable
-* Some validations
+### Coming features
+
+* Validations
 * Integrate with meteor-roles
-* Report issues fixed in a version
 * Tests
+
+### Known Bugs
+
+* User selects are not updated correctly
+* Users in the template handler 'userName' are sometimes found and sometimes not.

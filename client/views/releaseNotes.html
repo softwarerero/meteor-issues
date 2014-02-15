@@ -1,0 +1,34 @@
+<template name="releaseNotes">
+  {{setTitle "releaseNotes"}}
+  <h2>{{i18n "releaseNotes"}}</h2>
+
+
+  <div class="panel-group" id="accordion">
+    {{#each releaseNotes}}
+    <div class="panel">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#{{_id}}">
+            {{versionName solvedInVersion}}: {{title}}
+          </a>
+        </h4>
+      </div>
+      <div id="{{_id}}" class="panel-collapse collapse">
+        <div class="panel-body">
+          <dl class="dl-horizontal">
+            <dt>{{i18n "description"}}</dt><dd>{{description}}</dd>
+            <dt>{{i18n "foundInVersion"}}</dt><dd>{{versionName foundInVersion}}</dd>
+            <dt>{{i18n "foundBy"}}</dt><dd>{{fuserName oundBy}}</dd>
+            <dt>{{i18n "foundAt"}}</dt><dd>{{formatDateShort foundAt}}</dd>
+            <dt>{{i18n "solvedBy"}}</dt><dd>{{userName solvedBy}}</dd>
+            <dt>{{i18n "solvedAt"}}</dt><dd>{{formatDateShort solvedAt}}</dd>
+            <dt>{{i18n "state"}}</dt><dd>{{state}}</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+
+
+</template>

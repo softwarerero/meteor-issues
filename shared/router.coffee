@@ -6,6 +6,15 @@ Router.map ->
     path: "/issue/:id"
     data: () ->
       id: @params.id
-      user: Meteor.users.findOne { _id: @params.id }
     waitOn: ->
       Meteor.subscribe("issues")
+
+  @route "versions",
+    path: "/versions"
+  @route "version",
+    path: "/version/:id"
+    data: () ->
+      id: @params.id
+
+  @route "releaseNotes",
+    path: "/releaseNotes"

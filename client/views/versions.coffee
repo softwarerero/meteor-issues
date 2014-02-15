@@ -1,9 +1,9 @@
-collectionName = "issues"
-entityName = "issue"
+collectionName = "versions"
+entityName = "version"
 Meteor.subscribe(collectionName)
-IssuesForm = new AutoForm(Issues)
+versionsForm = new AutoForm(Versions)
 
-IssuesForm.hooks
+versionsForm.hooks
   onSubmit: (insertDoc, updateDoc, currentDoc) ->
     Router.go(collectionName)
   onError: (operation, error, template) ->
@@ -12,17 +12,18 @@ IssuesForm.hooks
     insert: (doc) ->
       user = Session.get "user"
       doc.user = user._id
+      console.log "insert " + JSON.stringify doc
       doc
     remove: (id) ->
       ret = confirm("En serio?");
       Router.go(collectionName)
       ret
 
-Template.issues.helpers
-  issues: () ->
-    Issues.find({}, {sort: [["name", "desc"]]})
+Template.versions.helpers
+  versions: () ->
+    Versions.find({}, {sort: [["name", "desc"]]})
 
-Template.issues.events
+Template.versions.events
   "click .tableRow": (event, template) ->
     id = $(event.target).parent().attr("uid")
     if (id)
@@ -31,32 +32,16 @@ Template.issues.events
   'click .create': (event, template) ->
     Router.go(entityName, {id: "new"})
 
-Template.issue.helpers
+Template.version.helpers
   schema: () ->
-    IssuesForm
+    versionsForm
   doc: () ->
     if this.id is "new"
-      foundBy: (Session.get "user")._id
       product: Meteor.settings.public.systemName
-      foundInVersion: Meteor.settings.public.version
-      foundAt: new Date
-      state: "new"
     else
-      Issues.findOne { _id: this.id }
+      Versions.findOne { _id: this.id }
 
-Template.issue.events
+Template.version.events
   'click .cancel': (event, template) ->
     event.preventDefault()
     Router.go(collectionName)
-
-#  'click .remove': (event, template) ->
-#    event.preventDefault()
-#    id = $(".id").val()
-#    #    alert(id)
-#    if confirm("En serio?")
-#      Meteor.call "deleteUser", id, (error, result) ->
-#        console.log('created user: ' + error + ", " + JSON.stringify(result))
-#        displayResult(error, result)
-#        Router.go(collectionName)
-
-

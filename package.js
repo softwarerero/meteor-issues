@@ -34,6 +34,10 @@ Package.on_use(function (api, where) {
   
   api.add_files('client/views/issues.html', 'client');
   api.add_files('client/views/issues.coffee', 'client');
+  api.add_files('client/views/versions.html', 'client');
+  api.add_files('client/views/versions.coffee', 'client');
+  api.add_files('client/views/releaseNotes.html', 'client');
+  api.add_files('client/views/releaseNotes.coffee', 'client');
   api.add_files('client/templateHelpers.coffee', 'client');
 
   // SERVER

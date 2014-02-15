@@ -1,6 +1,8 @@
 es =
   issues: "Asuntos"
   issue: "Asunto"
+  versions: "Versions"
+  version: "Version"
   name: "Nombre"
   title: "Titular"
   user: "Usuario"
@@ -14,6 +16,7 @@ es =
   solvedBy: "Solucionado por"
   solvedAt: "Solucionado cuando"
   state: "Estado"
+  releaseNotes: "Notas de Versión"
 
   issueState:
     new: "Nuevo"
