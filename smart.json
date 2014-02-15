@@ -1,7 +1,8 @@
 {
   "name": "issues",
   "description": "Manage issues within an application.",
-  "author": "el@softwarerero.com",
+  "homepage": "https://github.com/softwarerero/meteor-issues",
+  "author": "Stefan Undorf <el@softwarerero.com>",
   "version": "0.0.1",
   "git": "https://github.com/softwarerero/meteor-issues",
   "packages": {
