@@ -3,7 +3,7 @@
   "description": "Manage issues within an application.",
   "homepage": "https://github.com/softwarerero/meteor-issues",
   "author": "Stefan Undorf <el@softwarerero.com>",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "git": "https://github.com/softwarerero/meteor-issues",
   "packages": {
     "iron-router": {},
